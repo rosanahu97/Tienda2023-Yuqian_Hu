@@ -6,39 +6,69 @@
         <div class="right-element">
             <input type="text" placeholder="Buscar categoria.." name="buscar" [(ngModel)]="c_nombre"
                 (ngModelChange)="onChange($event)">
-                <button class="btn" (click)="filtrar()"><i class="fa fa-search"></i></button>
+            <button class="btn" (click)="filtrar()"><i class="fa fa-search"></i></button>
 
         </div>
     </div>
     <!--si el usuario esta buscando categoria por su nombre, es decir, cuadro de busqueda no vacio,
          muestra la lista filtrada-->
     <div class="lista" *ngIf="estaBuscando else elseBlock">
-        <ul class="list-group" *ngFor="let categoria of listadoFiltrado">
-            <li class="list-group-item">
-                <span class="float-start w-5 p-3 ">{{categoria.id_categoria}}</span>
-                <span class="float-start w-5 p-3">{{categoria.cat_nombre}}</span>
-                <span class="float-start w-5 p-3">{{categoria.cat_descripcion}}</span>
-                <div class="butones">
-                    <button type="button">Eliminar</button>
-                    <button type="button">Modificar</button>
-                </div>
-            </li>
-        </ul>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Id categoria</th>
+                    <th scope="col">Nombre </th>
+                    <th scope="col">Descripcion</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let categoria of listadoFiltrado">
+                <tr>
+                    <td><span class="float-start w-5 p-3 ">{{categoria.id_categoria}}</span>
+                    </td>
+                    <td> <span class="float-start w-5 p-3">{{categoria.cat_nombre}}</span>
+                    </td>
+                    <td> <span class="float-start w-5 p-3">{{categoria.cat_descripcion}}</span>
+                    </td>
+                    <td>
+                        <div>
+                            <button class="btn" ><i class="fa fa-trash-o" aria-hidden="true"></i></button>  
+                            <button class="btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                        </div>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <!--En caso contrario, es decir, el usuario no esta buscando la categoria,muestra la lista entera-->
     <ng-template #elseBlock>
-        <ul class="list-group" *ngFor="let categoria of listado">
-            <li class="list-group-item">
-                <span class="float-start w-5 p-3 ">{{categoria.id_categoria}}</span>
-                <span class="float-start w-5 p-3">{{categoria.cat_nombre}}</span>
-                <span class="float-start w-5 p-3">{{categoria.cat_descripcion}}</span>
-
-                <div class="butones">
-                    <button type="button">Visualizar</button>
-                    <button type="button">Modificar</button>
-                </div>
-            </li>
-        </ul>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Id categoria</th>
+                    <th scope="col">Nombre </th>
+                    <th scope="col">Descripcion</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let categoria of listado">
+                <tr>
+                    <td><span class="float-start w-5 p-3 ">{{categoria.id_categoria}}</span>
+                    </td>
+                    <td> <span class="float-start w-5 p-3">{{categoria.cat_nombre}}</span>
+                    </td>
+                    <td> <span class="float-start w-5 p-3">{{categoria.cat_descripcion}}</span>
+                    </td>
+                    <td>
+                        <div>
+                        <button class="btn" ><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                    
+                
+                        <button class="btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </ng-template>
 
 </div>
