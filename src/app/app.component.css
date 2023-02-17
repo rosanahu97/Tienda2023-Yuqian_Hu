@@ -1,0 +1,12 @@
+.content {
+    min-height: calc(100vh - 70px);
+}
+
+.pie {
+    height: fit-content;
+    bottom: 0;
+    background-color: burlywood;
+    text-align: center;
+}
+
+

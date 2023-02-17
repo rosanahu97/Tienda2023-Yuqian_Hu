@@ -55,6 +55,9 @@ export class FormularioComponent {
     }
 
   }
+
+  ngOnInit(){}
+  
   accion(){
       switch(this.opcion){
         case op_actualizar :this.actualizar();break;
@@ -70,20 +73,18 @@ export class FormularioComponent {
       
       const dato: Observable<any> = this.conexionService.postApi('Categoria',this.categoria);
       dato.subscribe((resp: any) => {
-        console.log("ha insertado??"+resp);
+        this.dir.navigateByUrl('/categoria')
 
       });
-      this.dir.navigateByUrl('/categoria')
 
   };
 
   actualizar() {
       const dato: Observable<any> = this.conexionService.putApi('Categoria',this.categoria);
       dato.subscribe((resp: any) => {
-        console.log("ha actualizado??"+resp);
+        this.dir.navigateByUrl('/categoria')
 
       });
-      this.dir.navigateByUrl('/categoria')
 
 
    };
@@ -91,16 +92,20 @@ export class FormularioComponent {
       let id_eliminar=this.categoria.id_categoria;
       const dato: Observable<any> = this.conexionService.deleteApi('Categoria/'+id_eliminar);
       dato.subscribe((resp: any) => {
+        this.dir.navigateByUrl('/categoria')
 
     });
 
 
    }
+   //Cuando pulsamos el boton cancelar, volvemos a la pagina categoria
   cancelar() { 
     this.dir.navigateByUrl('/categoria')
 
   };
-
+  //Este metodo no hace nada, cuando el campo nombre es invalid, 
+  //al pulsar el boton insertar o modificar,no se realiza acciones
+  nada(){}
 
 
 }

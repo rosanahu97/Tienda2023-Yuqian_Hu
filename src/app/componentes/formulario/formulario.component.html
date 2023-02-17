@@ -13,19 +13,34 @@
             <label for="nombre">Nombre: </label>
             <!--Este campo es solo de lectura cuando queremos eliminar la categoria-->
             <input type="text" class="form-control" id="nombre" required [readOnly]="estoyEliminando"
-                [(ngModel)]="categoria.cat_nombre" name="nombre">
-        </div>
+                [(ngModel)]="categoria.cat_nombre" name="nombre" required minlength="5" maxlength="20" #name="ngModel">
+        
+                <div *ngIf="name.invalid " class="alert">
+            
+              <div *ngIf="name.errors?.['required']">
+                Campo nombre es obligatorio
+              </div>
+              <div *ngIf="name.errors?.['minlength']">
+                Campo nombre debe tener al menos 5 caracteres.
+              </div>
+              <div *ngIf="name.errors?.['maxlength']">
+                Campo nombre con longitud maxima 20 caracteres 
+              </div>
+            </div>
+        
+        
+            </div>
 
         <div class="form-group">
             <label for="descripcion">Descripcion</label>
             <!--Este campo es solo de lectura cuando queremos eliminar la categoria-->
             <input type="text" class="form-control" id="descripcion" [readOnly]="estoyEliminando"
-                [(ngModel)]="categoria.cat_descripcion" name="descripcion">
+                [(ngModel)]="categoria.cat_descripcion" name="descripcion" maxlength="200">
         </div>
 
         <div>
-            <button type="submit" class="btn btn-success" (click)="accion()" >{{opcion}}</button>
-
+            <!--Cuando campo nombre no es valido, no hay evento-->>
+            <button type="button" class="btn btn-success" (click)="name.invalid ? nada(): accion()">{{opcion}}</button>
             <button type="button" class="btn btn-default" (click)="cancelar()">Cancelar</button>
 
         </div>
