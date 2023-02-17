@@ -1,0 +1,17 @@
+
+    <div class="menu">
+        <nav>
+            <ul >
+                <li class="lista"><a class="enlace" routerLink='/categoria' (click)="isOn= false">Categoria</a></li>
+                <li class="lista"><a class="enlace">Usuario</a></li>
+                <li class="lista"><a class="enlace">Pedido</a></li>
+
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- La imagen se muestra solo una vez,desaparece despues de click en menu --> 
+
+        <div class="myimage" *ngIf="isOn">
+            <img src="./assets/incienso.jpg" alt="Inicio - Incienso" width="400" height="310">
+        </div>

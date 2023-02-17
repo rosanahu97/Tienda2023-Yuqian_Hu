@@ -1,0 +1,35 @@
+.contenedor{
+    margin-top: 80px;
+}
+.lista{
+  padding-top: 10px;
+  
+}
+.container {
+  overflow: hidden;
+  width: 100%;
+  min-height: 36px; /* Remember absolute positioning is outside the page flow! */
+  position: relative;
+}
+.left-element {
+  position: absolute;
+  left: 9px;
+  top: 0px;
+  width: fit-content;
+}
+
+.right-element {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  width: fit-content;
+}
+  .butones{
+    float: right;
+  }
+
+  ul li span {
+    float: left;
+    width: fit-content;
+  }
+  

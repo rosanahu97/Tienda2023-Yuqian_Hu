@@ -1,0 +1,31 @@
+.menu {
+    background:palevioletred;
+    width: 100%;
+    float: left;
+  }
+  .lista{
+    float: left;
+    padding-left: 20px;
+  
+  }
+ .menu ul{
+  list-style: none;
+
+  }
+  .enlace{
+    color: aliceblue;
+    text-decoration: none;
+    font-size:x-large;
+  }
+.enlace:hover{
+    text-decoration: underline;
+  }
+
+  .myimage {
+    display:block;
+    margin-top: 10%;
+    padding-left: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}

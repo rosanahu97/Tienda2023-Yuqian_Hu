@@ -1,0 +1,12 @@
+<h2>Detalles de {{categoria.cat_nombre}}</h2>
+<div>id categoria : {{categoria.id_categoria}}</div>
+<div>
+    <label for="categoria.cat_name">Nombre:</label>    
+    <!-- con ngModel nos permite modificar el valor --> 
+    <input name="categoria.cat_name" [(ngModel)] ="categoria.cat_nombre"/>
+</div>
+<div>
+    <label for="categoria.cat_descripcion">Descripcion:</label>    
+    <!-- con ngModel nos permite modificar el valor --> 
+    <input name="categoria.cat_descripcion" [(ngModel)] ="categoria.cat_descripcion"/>
+</div>
