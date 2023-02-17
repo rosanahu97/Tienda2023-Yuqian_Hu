@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Categoria } from 'src/app/modelo/categoria';
 import { ConexionService } from 'src/app/servicio/conexion.service';
@@ -10,7 +10,6 @@ const op_insertar: string = "Insertar ";
 const op_eliminar: string = "Eliminar ";
 const op_actualizar: string = "Actualizar ";
 const op_error: string = "Error";
-
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
@@ -24,14 +23,15 @@ export class FormularioComponent {
   id: number = 0;
   //readonly campo id
   soloLectura:boolean=false;
-  //readonly campo nombre y descripcion
+  //readonly campo nombre y descripcion y ocultar los demas buton 
   estoyEliminando:boolean=false;
-  //para ocultar el campo id en caso de insertar
+  //para ocultar el campo id en caso de insertar y el boton insertar
   estoyInsertando:boolean=false;
+
 
   categoria: Categoria = { id_categoria: 0, cat_nombre: "", cat_descripcion: "" };
 
-  constructor(private route: ActivatedRoute, private conexionService: ConexionService) {
+  constructor(private route: ActivatedRoute, private conexionService: ConexionService,private dir:Router) {
     //coger los parametros de la ruta y buscar la categoria por id
     let p1 = route.snapshot.paramMap.get('id');
     if (p1 !== "0") {
@@ -55,6 +55,14 @@ export class FormularioComponent {
     }
 
   }
+  accion(){
+      switch(this.opcion){
+        case op_actualizar :this.actualizar();break;
+        case op_eliminar:this.eliminar();break;
+        case op_insertar: this.insertar();break;
+        default: console.log(op_error);break;
+      }
+  }
 
   insertar() {
       let id = Math.floor(Math.random() * 500) + 2;
@@ -65,6 +73,7 @@ export class FormularioComponent {
         console.log("ha insertado??"+resp);
 
       });
+      this.dir.navigateByUrl('/categoria')
 
   };
 
@@ -74,6 +83,7 @@ export class FormularioComponent {
         console.log("ha actualizado??"+resp);
 
       });
+      this.dir.navigateByUrl('/categoria')
 
 
    };
@@ -83,9 +93,13 @@ export class FormularioComponent {
       dato.subscribe((resp: any) => {
 
     });
+
+
    }
-  onSubmit() {  };
-  cancelar() { };
+  cancelar() { 
+    this.dir.navigateByUrl('/categoria')
+
+  };
 
 
 

@@ -1,6 +1,6 @@
 <div class="container">
     <h2>{{opcion}}categoria</h2>
-    <form (ngSubmit)="onSubmit()" #categoriaForm="ngForm">
+    <form  #categoriaForm="ngForm">
         <!--Este campo(id) se oculta cuando quieremos insertar una categoria-->
         <div class="form-group" [hidden]="estoyInsertando">
             <label for="id">Id: </label>
@@ -24,9 +24,8 @@
         </div>
 
         <div>
-            <button type="submit" class="btn btn-success" (click)="insertar()">Insertar</button>
-            <button type="button" class="btn btn-default" (click)="eliminar()">Eliminar</button>
-            <button type="button" class="btn btn-default" (click)="actualizar()">Actualizar</button>
+            <button type="submit" class="btn btn-success" (click)="accion()" >{{opcion}}</button>
+
             <button type="button" class="btn btn-default" (click)="cancelar()">Cancelar</button>
 
         </div>
