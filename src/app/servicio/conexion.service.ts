@@ -13,9 +13,9 @@ export class ConexionService {
   leerApi(url:string):Observable<any>{
     return this.http.get(this.API_URL+url).pipe(share());
   }
-  // postApi(url:string):Observable<any>{
-  //   return this.http.post(this.API_URL+url).pipe(share());
-  // }
+   postApi(url:string,dto:any):Observable<any>{
+     return this.http.post(this.API_URL+url,dto).pipe(share());
+  }
   // putApi(url:string):Observable<any>{
   //   return this.http.get(this.API_URL+url).pipe(share());
   // }

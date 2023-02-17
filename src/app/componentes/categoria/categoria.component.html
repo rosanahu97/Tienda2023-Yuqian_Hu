@@ -1,7 +1,7 @@
 <div class="contenedor">
     <div class="container">
         <div class="left-element">
-            <button type="button">Añadir</button>
+            <button type="button" routerLink='/categoria/0/ins'>Añadir</button>
         </div>
         <div class="right-element">
             <input type="text" placeholder="Buscar categoria.." name="buscar" [(ngModel)]="c_nombre"
@@ -31,8 +31,8 @@
                     </td>
                     <td>
                         <div>
-                            <button class="btn" ><i class="fa fa-trash-o" aria-hidden="true"></i></button>  
-                            <button class="btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                            <button class="btn" routerLink='/categoria/{{categoria.id_categoria}}/del'><i class="fa fa-trash-o" aria-hidden="true"></i></button>  
+                            <button class="btn" routerLink='/categoria/{{categoria.id_categoria}}/act'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                         </div>
 
                     </td>
@@ -60,10 +60,8 @@
                     </td>
                     <td>
                         <div>
-                        <button class="btn" ><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                    
-                
-                        <button class="btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                            <button class="btn" routerLink='/categoria/{{categoria.id_categoria}}/del'><i class="fa fa-trash-o" aria-hidden="true"></i></button>  
+                            <button class="btn" routerLink='/categoria/{{categoria.id_categoria}}/act'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                         </div>
                     </td>
                 </tr>

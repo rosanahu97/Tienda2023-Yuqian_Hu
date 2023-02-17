@@ -1,12 +1,36 @@
-<h2>Detalles de {{categoria.cat_nombre}}</h2>
-<div>id categoria : {{categoria.id_categoria}}</div>
-<div>
-    <label for="categoria.cat_name">Nombre:</label>    
-    <!-- con ngModel nos permite modificar el valor --> 
-    <input name="categoria.cat_name" [(ngModel)] ="categoria.cat_nombre"/>
-</div>
-<div>
-    <label for="categoria.cat_descripcion">Descripcion:</label>    
-    <!-- con ngModel nos permite modificar el valor --> 
-    <input name="categoria.cat_descripcion" [(ngModel)] ="categoria.cat_descripcion"/>
+<div class="container">
+    <h2>{{opcion}}categoria</h2>
+    <form (ngSubmit)="onSubmit()" #categoriaForm="ngForm">
+        <!--Este campo(id) se oculta cuando quieremos insertar una categoria-->
+        <div class="form-group" [hidden]="estoyInsertando">
+            <label for="id">Id: </label>
+            <!--El campo id no es modificable -->
+            <input type="text" class="form-control" id="id" required [readOnly]="soloLectura"
+                [(ngModel)]="categoria.id_categoria" name="id">
+        </div>
+
+        <div class="form-group">
+            <label for="nombre">Nombre: </label>
+            <!--Este campo es solo de lectura cuando queremos eliminar la categoria-->
+            <input type="text" class="form-control" id="nombre" required [readOnly]="estoyEliminando"
+                [(ngModel)]="categoria.cat_nombre" name="nombre">
+        </div>
+
+        <div class="form-group">
+            <label for="descripcion">Descripcion</label>
+            <!--Este campo es solo de lectura cuando queremos eliminar la categoria-->
+            <input type="text" class="form-control" id="descripcion" [readOnly]="estoyEliminando"
+                [(ngModel)]="categoria.cat_descripcion" name="descripcion">
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-success" (click)="insertar()">Insertar</button>
+            <button type="button" class="btn btn-default" (click)="actualizar()">Actualizar</button>
+            <button type="button" class="btn btn-default" (click)="cancelar()">Cancelar</button>
+
+        </div>
+
+    </form>
+
+
 </div>
