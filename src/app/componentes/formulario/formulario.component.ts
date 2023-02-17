@@ -68,7 +68,22 @@ export class FormularioComponent {
 
   };
 
-  actualizar() { };
+  actualizar() {
+      const dato: Observable<any> = this.conexionService.putApi('Categoria',this.categoria);
+      dato.subscribe((resp: any) => {
+        console.log("ha actualizado??"+resp);
+
+      });
+
+
+   };
+   eliminar(){
+      let id_eliminar=this.categoria.id_categoria;
+      const dato: Observable<any> = this.conexionService.deleteApi('Categoria/'+id_eliminar);
+      dato.subscribe((resp: any) => {
+
+    });
+   }
   onSubmit() {  };
   cancelar() { };
 

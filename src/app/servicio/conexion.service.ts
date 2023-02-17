@@ -16,11 +16,11 @@ export class ConexionService {
    postApi(url:string,dto:any):Observable<any>{
      return this.http.post(this.API_URL+url,dto).pipe(share());
   }
-  // putApi(url:string):Observable<any>{
-  //   return this.http.get(this.API_URL+url).pipe(share());
-  // }
+   putApi(url:string,dto:any):Observable<any>{
+     return this.http.put(this.API_URL+url,dto).pipe(share());
+   }
   deleteApi(url:string):Observable<any>{
-    return this.http.get(this.API_URL+url).pipe(share());
+    return this.http.delete(this.API_URL+url).pipe(share());
   }
 }
 
