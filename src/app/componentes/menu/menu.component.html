@@ -1,17 +1,16 @@
 
-    <div class="menu">
-        <nav>
-            <ul >
-                <li class="lista"><a class="enlace" routerLink='/categoria' (click)="isOn= false">Categoria</a></li>
-                <li class="lista"><a class="enlace">Usuario</a></li>
-                <li class="lista"><a class="enlace">Pedido</a></li>
-
-            </ul>
-        </nav>
-    </div>
+        <nav class="nav nav-pills flex-column flex-sm-row">
+            <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" routerLink='/categoria' (click)="isOn= false">Categoria</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="#">Usuario</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="#">Pedido</a>
+          </nav>
+    
     
     <!-- La imagen se muestra solo una vez,desaparece despues de click en menu --> 
 
         <div class="myimage" *ngIf="isOn">
-            <img src="./assets/incienso.jpg" alt="Inicio - Incienso" width="400" height="310">
+            <img class ="px-4"src="./assets/incienso.jpg" alt="Inicio - Incienso" width="350" height="310">
+            <img class ="px-4" src="./assets/incienso.jpg" alt="Inicio - Incienso" width="350" height="310">
+            <img class ="px-4" src="./assets/incienso.jpg" alt="Inicio - Incienso" width="350" height="310">
+
         </div>

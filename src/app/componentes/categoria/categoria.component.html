@@ -1,19 +1,19 @@
 <div class="contenedor">
     <div class="container">
         <div class="left-element">
-            <button type="button" routerLink='/categoria/0/ins'>Añadir</button>
+            <button type="button" class="btn btn-primary"routerLink='/categoria/0/ins'>Añadir</button>
         </div>
-        <div class="right-element">
-            <input type="text" placeholder="Buscar categoria.." name="buscar" [(ngModel)]="c_nombre"
+        <div class="right-element " >
+            <input class=" border border-3" type="text" placeholder="Buscar categoria.." name="buscar" [(ngModel)]="c_nombre"
                 (ngModelChange)="onChange($event)">
-            <button class="btn" (click)="filtrar()"><i class="fa fa-search"></i></button>
+            <button type="button " (click)="filtrar()"><i class="fa fa-search"></i></button>
 
         </div>
     </div>
     <!--si el usuario esta buscando categoria por su nombre, es decir, cuadro de busqueda no vacio,
          muestra la lista filtrada-->
     <div class="lista" *ngIf="estaBuscando else elseBlock">
-        <table class="table table-bordered">
+        <table class="table table-bordered border-primary border border-3  ">
             <thead>
                 <tr>
                     <th scope="col">Id categoria</th>
@@ -21,7 +21,8 @@
                     <th scope="col">Descripcion</th>
                 </tr>
             </thead>
-            <tbody *ngFor="let categoria of listadoFiltrado">
+
+            <tbody  *ngFor="let categoria of listadoFiltrado">
                 <tr>
                     <td><span class="float-start w-5 p-3 ">{{categoria.id_categoria}}</span>
                     </td>
@@ -42,7 +43,7 @@
     </div>
     <!--En caso contrario, es decir, el usuario no esta buscando la categoria,muestra la lista entera-->
     <ng-template #elseBlock>
-        <table class="table table-bordered">
+        <table class="table table-bordered border-primary border border-3">
             <thead>
                 <tr>
                     <th scope="col">Id categoria</th>
@@ -50,7 +51,7 @@
                     <th scope="col">Descripcion</th>
                 </tr>
             </thead>
-            <tbody *ngFor="let categoria of listado">
+            <tbody  *ngFor="let categoria of listado">
                 <tr>
                     <td><span class="float-start w-5 p-3 ">{{categoria.id_categoria}}</span>
                     </td>

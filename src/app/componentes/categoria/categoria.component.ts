@@ -24,8 +24,6 @@ export class CategoriaComponent {
     })
 }
 
-ngOnInit(){}
-
 //cuando pulsamos el buton buscar, se llama a la funcion filtrar para devolver la lista filtrada
 //devuelve la categoria con nombre = caracteres introducido, es posible devuelve una lista vacia
 filtrar(){

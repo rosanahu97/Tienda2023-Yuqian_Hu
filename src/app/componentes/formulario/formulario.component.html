@@ -8,7 +8,6 @@
             <input type="text" class="form-control" id="id" required [readOnly]="soloLectura"
                 [(ngModel)]="categoria.id_categoria" name="id">
         </div>
-
         <div class="form-group">
             <label for="nombre">Nombre: </label>
             <!--Este campo es solo de lectura cuando queremos eliminar la categoria-->
@@ -32,16 +31,16 @@
             </div>
 
         <div class="form-group">
-            <label for="descripcion">Descripcion</label>
+            <label for="descripcion">Descripcion: </label>
             <!--Este campo es solo de lectura cuando queremos eliminar la categoria-->
             <input type="text" class="form-control" id="descripcion" [readOnly]="estoyEliminando"
                 [(ngModel)]="categoria.cat_descripcion" name="descripcion" maxlength="200">
         </div>
 
-        <div>
-            <!--Cuando campo nombre no es valido, no hay evento-->>
-            <button type="button" class="btn btn-success" (click)="name.invalid ? nada(): accion()">{{opcion}}</button>
-            <button type="button" class="btn btn-default" (click)="cancelar()">Cancelar</button>
+        <div class ="mt-5">
+            <!--Cuando campo nombre no es valido, no hay evento-->
+            <button type="button" class="btn btn-primary " (click)="name.invalid ? nada(): accion()">{{opcion}}</button>
+            <button type="button" class="btn btn-primary mx-5" (click)="cancelar()">Cancelar</button>
 
         </div>
 

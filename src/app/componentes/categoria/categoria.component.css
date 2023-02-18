@@ -2,11 +2,14 @@
     margin-top: 20px;
 }
 .lista{
-  padding-top: 10px;
+  padding-top: 20px;
+  margin-top: 10px;
   
 }
 .container {
   overflow: hidden;
+  margin-top: 10px;
+  margin-bottom: 20px;
   width: 100%;
   min-height: 36px; /* Remember absolute positioning is outside the page flow! */
   position: relative;

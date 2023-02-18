@@ -33,7 +33,9 @@ export class FormularioComponent {
 
   constructor(private route: ActivatedRoute, private conexionService: ConexionService,private dir:Router) {
     //coger los parametros de la ruta y buscar la categoria por id
+    //id =0 en caso de insertar
     let p1 = route.snapshot.paramMap.get('id');
+    //si el id !=0 significa que no estamos insertando una categoria
     if (p1 !== "0") {
       let op = route.snapshot.paramMap.get('op');
         const dato: Observable<any> = this.conexionService.leerApi('Categoria/'+p1);
@@ -56,7 +58,6 @@ export class FormularioComponent {
 
   }
 
-  ngOnInit(){}
   
   accion(){
       switch(this.opcion){
@@ -66,7 +67,7 @@ export class FormularioComponent {
         default: console.log(op_error);break;
       }
   }
-
+//metodo para insertar una categoria a bbdd
   insertar() {
       let id = Math.floor(Math.random() * 500) + 2;
       this.categoria.id_categoria=id;
@@ -78,7 +79,7 @@ export class FormularioComponent {
       });
 
   };
-
+//metodo para actualizar una categoria 
   actualizar() {
       const dato: Observable<any> = this.conexionService.putApi('Categoria',this.categoria);
       dato.subscribe((resp: any) => {
@@ -88,6 +89,7 @@ export class FormularioComponent {
 
 
    };
+   //metodo para eliminar una categoria 
    eliminar(){
       let id_eliminar=this.categoria.id_categoria;
       const dato: Observable<any> = this.conexionService.deleteApi('Categoria/'+id_eliminar);
