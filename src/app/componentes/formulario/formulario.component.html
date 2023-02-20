@@ -14,7 +14,7 @@
             <input type="text" class="form-control" id="nombre" required [readOnly]="estoyEliminando"
                 [(ngModel)]="categoria.cat_nombre" name="nombre" required minlength="5" maxlength="20" #name="ngModel">
         
-                <div *ngIf="name.invalid " class="alert">
+                <div *ngIf="name.invalid && (name.touched || name.dirty)" class="alert">
             
               <div *ngIf="name.errors?.['required']">
                 Campo nombre es obligatorio

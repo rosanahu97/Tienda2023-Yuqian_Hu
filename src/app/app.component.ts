@@ -12,7 +12,6 @@ export class AppComponent {
   listado: any[] = [];
   constructor(private conexion: ConexionService) {
     const dato: Observable<any> = this.conexion.leerApi('Categoria');
-    console.log("entro en listado");
     dato.subscribe((resp: any) => {
       this.listado = resp;
       console.log(this.listado);

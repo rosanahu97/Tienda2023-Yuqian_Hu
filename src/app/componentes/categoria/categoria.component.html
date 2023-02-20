@@ -10,9 +10,7 @@
 
         </div>
     </div>
-    <!--si el usuario esta buscando categoria por su nombre, es decir, cuadro de busqueda no vacio,
-         muestra la lista filtrada-->
-    <div class="lista" *ngIf="estaBuscando else elseBlock">
+    <div class="lista" >
         <table class="table table-bordered border-primary border border-3  ">
             <thead>
                 <tr>
@@ -21,8 +19,9 @@
                     <th scope="col">Descripcion</th>
                 </tr>
             </thead>
-
-            <tbody  *ngFor="let categoria of listadoFiltrado">
+    <!--si el usuario esta buscando categoria por su nombre, es decir, cuadro de busqueda no vacio,
+         muestra la lista filtrada, en otro caso, muestra lista original-->
+            <tbody  *ngFor="let categoria of listaAMostrar">
                 <tr>
                     <td><span class="float-start w-5 p-3 ">{{categoria.id_categoria}}</span>
                     </td>
@@ -41,33 +40,4 @@
             </tbody>
         </table>
     </div>
-    <!--En caso contrario, es decir, el usuario no esta buscando la categoria,muestra la lista entera-->
-    <ng-template #elseBlock>
-        <table class="table table-bordered border-primary border border-3">
-            <thead>
-                <tr>
-                    <th scope="col">Id categoria</th>
-                    <th scope="col">Nombre </th>
-                    <th scope="col">Descripcion</th>
-                </tr>
-            </thead>
-            <tbody  *ngFor="let categoria of listado">
-                <tr>
-                    <td><span class="float-start w-5 p-3 ">{{categoria.id_categoria}}</span>
-                    </td>
-                    <td> <span class="float-start w-5 p-3">{{categoria.cat_nombre}}</span>
-                    </td>
-                    <td> <span class="float-start w-5 p-3">{{categoria.cat_descripcion}}</span>
-                    </td>
-                    <td>
-                        <div>
-                            <button class="btn" routerLink='/categoria/{{categoria.id_categoria}}/del'><i class="fa fa-trash-o" aria-hidden="true"></i></button>  
-                            <button class="btn" routerLink='/categoria/{{categoria.id_categoria}}/act'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </ng-template>
-
 </div>
